@@ -1,0 +1,40 @@
+.subHead {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.subHead div {
+  background-color: #fffacd;
+  color: black;
+  padding: 5%;
+  width: 50%;
+  text-align: center;
+  flex-direction: row;
+  display: flex;
+  justify-content: center;
+  margin-top: 2%;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 1em;
+}
+
+.subHead div:hover {
+  background-color: #ffe4b5;
+}
+@media (max-width: 500px) {
+  .subHead {
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 1%;
+  }
+  .subHead div {
+    width: 90%;
+    padding: 5%;
+    margin-top: 1%;
+  }
+
+  .subHead div:hover {
+    background-color: #ffe4b5;
+  }
+}
