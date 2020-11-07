@@ -1,0 +1,10 @@
+.head {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fffacd;
+  color: black;
+  padding: 10%;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 2em;
+}
