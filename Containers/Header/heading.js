@@ -42,7 +42,12 @@ class Heading extends Component {
     else {
       return (
         <div>
-          <Auth />
+          <div className="head">Gatherer</div>
+          <Auth
+            firebaseConfig={firebaseConfig}
+            isSignedUp={this.state.isSignedUp}
+            isLoggedIn={this.state.isLoggedIn}
+          />
         </div>
       );
     }
