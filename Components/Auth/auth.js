@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./auth.css";
-import 
+import axios from "axios";
 class Auth extends Component {
   constructor(props) {
     super(props);
@@ -22,6 +22,17 @@ class Auth extends Component {
     this.setState({ password: e.target.value });
   };
 
+  //posting the sign up data on database through REST API
+  signUpHandler = (e, p) => {
+    axios.post(
+      "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCqafnYZyRuKxhTEsfg1gaSQ2N6p9pwS_U",
+      {
+        email: e,
+        password: p
+      }
+    );
+  };
+
   render() {
     return (
       <form className="form">
@@ -35,7 +46,13 @@ class Auth extends Component {
           onChange={(e) => this.passwordHandler(e)}
           value={this.state.password}
         />
-        <button onClick={this.signUpHandler}>Sign In</button>
+        <button
+          onClick={() =>
+            this.signUpHandler(this.state.email, this.state.password)
+          }
+        >
+          Sign Up
+        </button>
         <button onClick={this.loginHandler}>Log In</button>
       </form>
     );

@@ -9,13 +9,14 @@ class Heading extends Component {
     super(props);
     this.state = {
       isSignedUp: false,
-      isLoggedIn: false
+      isLoggedIn: false,
+      firebaseConfig :""
     };
   }
 
   componentDidMount() {
     // Your web app's Firebase configuration
-    var firebaseConfig = {
+    this.setState({firebaseConfig : {
       apiKey: "AIzaSyCqafnYZyRuKxhTEsfg1gaSQ2N6p9pwS_U",
       authDomain: "auth-86847.firebaseapp.com",
       databaseURL: "https://auth-86847.firebaseio.com",
@@ -23,9 +24,10 @@ class Heading extends Component {
       storageBucket: "auth-86847.appspot.com",
       messagingSenderId: "953040344962",
       appId: "1:953040344962:web:f22cfd26ea6e5c26bc219b"
-    };
+    }
+  });
     // Initialize Firebase
-    //firebase.initializeApp(firebaseConfig);
+    firebase.initializeApp(this.state.firebaseConfig);
   }
 
   render() {
@@ -44,7 +46,7 @@ class Heading extends Component {
         <div>
           <div className="head">Gatherer</div>
           <Auth
-            firebaseConfig={firebaseConfig}
+            firebaseConfig={this.state.firebaseConfig}
             isSignedUp={this.state.isSignedUp}
             isLoggedIn={this.state.isLoggedIn}
           />
