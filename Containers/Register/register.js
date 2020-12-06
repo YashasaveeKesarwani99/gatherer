@@ -1,6 +1,18 @@
-//to register for an event
-import React from "react";
+import React, { Component } from "react";
 
-const Register = () => {
-  return <div></div>;
-};
+class Register extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
+  render() {
+    return (
+      <div>
+        <div className="head">Register In An Event</div>
+      </div>
+    );
+  }
+}
+
+export default Register;
