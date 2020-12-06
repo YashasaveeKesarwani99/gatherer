@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./heading.css";
 import { Route } from "react-router-dom";
 import firebase from "firebase";
+import Register from "../Register/register";
 import MakeAnEvent from "../MakeAnEvent/makeAnEvent";
 //importing sub headings
 import SubHeadings from "../../Components/subHeading/subHeading";
@@ -31,7 +32,7 @@ class Heading extends Component {
       }
     });
     // Initialize Firebase
-    //firebase.initializeApp(this.state.firebaseConfig);
+    firebase.initializeApp(this.state.firebaseConfig);
   }
 
   HideAuth = () => {
@@ -56,13 +57,21 @@ class Heading extends Component {
       return (
         <div>
           <div className="head">Gatherer</div>
-          <Route path="/" exact render={()=> {return(
-          <Auth
-            firebaseConfig={this.state.firebaseConfig}
-            isSignedUp={this.state.isSignedUp}
-            isLoggedIn={this.state.isLoggedIn}
-          />)}}/>
+          <Route
+            path="/"
+            exact
+            render={() => {
+              return (
+                <Auth
+                  firebaseConfig={this.state.firebaseConfig}
+                  isSignedUp={this.state.isSignedUp}
+                  isLoggedIn={this.state.isLoggedIn}
+                />
+              );
+            }}
+          />
           <Route path="/makeAnEvent" render={() => <MakeAnEvent />} />
+          <Route path="/Register" render={() => <Register />} />
         </div>
       );
     }

@@ -42,8 +42,7 @@ class Auth extends Component {
   logInHandler = (e, p) => {
     axios
       .post(
-        "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCqafnYZyRuKxhTEsfg1gaSQ2N6p9pwS_U"
-        ,
+        "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCqafnYZyRuKxhTEsfg1gaSQ2N6p9pwS_U",
         {
           email: e,
           password: p
@@ -53,7 +52,6 @@ class Auth extends Component {
         if (res.status === 200) this.setState({ loggedIn: true });
       });
   };
-
 
   render() {
     if (this.state.loggedIn === false) {
@@ -89,10 +87,10 @@ class Auth extends Component {
       return (
         <div>
           <Link to="/makeAnEvent">
-            <div> Make An Event </div>
+            <div className="head"> Make An Event </div>
           </Link>
           <Link to="/Register">
-            <div> Register for an Event</div>
+            <div className="head"> Register </div>
           </Link>
         </div>
       );

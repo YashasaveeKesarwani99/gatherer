@@ -1,29 +1,16 @@
-.form {
+.makeanevent {
   display: flex;
   justify-content: center;
   align-content: center;
   flex-direction: column;
 }
-input {
-  margin-top: 3%;
-  font-size: 1em;
-  padding: 1%;
-  border: none;
-  border-bottom: solid black;
-}
 
-button {
+.previousEvents {
   margin-top: 3%;
   font-size: 1em;
   padding: 1%;
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   background-color: #fffacd;
   border: none;
-}
-button:hover {
-  background-color: #fffcaa;
-}
-
-.head {
-  text-decoration: none;
+  text-align: center;
 }
