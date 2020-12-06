@@ -31,6 +31,8 @@ class MakeAnEvent extends Component {
     });
   };
 
+  submitHandler = () => {};
+
   render() {
     return (
       <div>
@@ -50,7 +52,7 @@ class MakeAnEvent extends Component {
             onChange={(e) => this.eventDateHandler(e)}
             value={this.state.eventDate}
           />
-          <button>Submit</button>
+          <button onClick={this.submitHandler}>Submit</button>
         </form>
         <div className="previousEvents">Your previous and coming up event</div>
       </div>

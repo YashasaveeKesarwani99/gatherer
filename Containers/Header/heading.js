@@ -14,7 +14,8 @@ class Heading extends Component {
       isSignedUp: false,
       isLoggedIn: false,
       firebaseConfig: "",
-      hideAuth: false
+      hideAuth: false,
+      fireDb: ""
     };
   }
 
@@ -32,7 +33,8 @@ class Heading extends Component {
       }
     });
     // Initialize Firebase
-    firebase.initializeApp(this.state.firebaseConfig);
+
+    //firebase.initializeApp(this.state.firebaseConfig);
   }
 
   HideAuth = () => {
