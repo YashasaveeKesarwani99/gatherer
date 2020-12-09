@@ -19,24 +19,6 @@ class Heading extends Component {
     };
   }
 
-  componentDidMount() {
-    // Your web app's Firebase configuration
-    this.setState({
-      firebaseConfig: {
-        apiKey: "AIzaSyCqafnYZyRuKxhTEsfg1gaSQ2N6p9pwS_U",
-        authDomain: "auth-86847.firebaseapp.com",
-        databaseURL: "https://auth-86847.firebaseio.com",
-        projectId: "auth-86847",
-        storageBucket: "auth-86847.appspot.com",
-        messagingSenderId: "953040344962",
-        appId: "1:953040344962:web:f22cfd26ea6e5c26bc219b"
-      }
-    });
-    // Initialize Firebase
-
-    //firebase.initializeApp(this.state.firebaseConfig);
-  }
-
   HideAuth = () => {
     this.setState({
       hideAuth: true
@@ -65,7 +47,6 @@ class Heading extends Component {
             render={() => {
               return (
                 <Auth
-                  firebaseConfig={this.state.firebaseConfig}
                   isSignedUp={this.state.isSignedUp}
                   isLoggedIn={this.state.isLoggedIn}
                 />

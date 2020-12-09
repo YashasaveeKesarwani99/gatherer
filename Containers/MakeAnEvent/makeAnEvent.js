@@ -1,13 +1,26 @@
 import React, { Component } from "react";
 import "./makeAnEvent.css";
+import fireDb from "../../Components/firebase/firebase";
 class MakeAnEvent extends Component {
   constructor(props) {
     super(props);
     this.state = {
       eventName: "",
       eventDate: "",
-      eventVenue: ""
+      eventVenue: "",
+      event: []
     };
+  }
+
+  componentDidMount() {
+    fireDb.ref("gatherer/makeAnEvent").on("value", (snapshot) => {
+      let studentlist = [];
+      snapshot.forEach((snap) => {
+        // snap.val() is the dictionary with all your keys/values from the 'students-list' path
+        studentlist.push(snap.val());
+      });
+      this.setState({ event: studentlist });
+    });
   }
 
   eventNameHandler = (e) => {
@@ -31,7 +44,14 @@ class MakeAnEvent extends Component {
     });
   };
 
-  submitHandler = () => {};
+  submitHandler = () => {
+    fireDb
+      .ref()
+      .child("gatherer/makeAnEvent")
+      .push(this.state, (err) => {
+        if (err) console.log(err);
+      });
+  };
 
   render() {
     return (
@@ -55,6 +75,17 @@ class MakeAnEvent extends Component {
           <button onClick={this.submitHandler}>Submit</button>
         </form>
         <div className="previousEvents">Your previous and coming up event</div>
+
+        {this.state.event.map((i) => {
+          console.log(i);
+          return (
+            <div className="eventTable">
+              <div>{i.eventDate}</div>
+              <div>{i.eventName}</div>
+              <div>{i.eventVenue}</div>
+            </div>
+          );
+        })}
       </div>
     );
   }
